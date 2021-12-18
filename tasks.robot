@@ -47,7 +47,6 @@ Reset Temp Folder
 Open the robot order website
     [Arguments]    ${url}
     Open Available Browser    ${url}
-    No Operation
 
 Get orders
     [Arguments]    ${url}
