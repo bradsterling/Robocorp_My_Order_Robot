@@ -46,7 +46,8 @@ Reset Temp Folder
 
 Open the robot order website
     [Arguments]    ${url}
-    Open Available Browser    ${url}
+    Log    ${url}
+    Open Available Browser    ${url}    maximized=true
 
 Get orders
     [Arguments]    ${url}
@@ -56,7 +57,7 @@ Get orders
     [Return]    ${orders}
 
 Close the annoying modal
-    Click Button    Yep
+    Click Button    xpath://button[contains(.,'OK')]
 
 Fill the form
     [Arguments]    ${row}
@@ -95,7 +96,6 @@ Go to order another robot
     Click Element    id:order-another
 
 Create a ZIP file of the receipts
-    No Operation
     Archive Folder With ZIP    ${TEMP_DIR}${/}orders    ${OUTPUT_DIR}${/}orders.zip    recursive=False    include=order*.pdf
 
 Close the browser
